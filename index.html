@@ -1048,12 +1048,12 @@
 		  context.fillStyle = '#000000';
 		  
 		  var levels = Object.keys(colors);
-		  var x = context.canvas.width - 15 - (120 * levels.length);                      
+		  var x = context.canvas.width - 15 - (155 * levels.length);                      
 		  var patternImg = document.getElementById('patternImg');
 		  var pattern = context.createPattern(patternImg,'repeat');
 		  for(var i = 0; i < levels.length; i++) {
 		  context.beginPath();
-		  context.arc(x + (120 * i), 17, 8, 0, 2 * Math.PI, false);
+		  context.arc(x + (155 * i), 17, 8, 0, 2 * Math.PI, false);
 		  if (colors[levels[i]] != 'pattern') {
 		  context.fillStyle = colors[levels[i]];
 		  }
@@ -1066,7 +1066,7 @@
 		  context.stroke();
 		  
 		  context.fillStyle = '#000000';
-		  context.fillText(levels[i], x + 15 + (i * 120), 22);
+		  context.fillText(levels[i], x + 15 + (i * 155), 22);
 		  }
 		  },
 		  setupCanvas: function(width, height, username){
