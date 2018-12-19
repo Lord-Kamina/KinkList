@@ -1044,16 +1044,16 @@
 		  return input;
 		  },
 		  drawLegend: function(context){
-		  context.font = "bold 13px Arial";
+		  context.font = "bold 16px Arial";
 		  context.fillStyle = '#000000';
 		  
 		  var levels = Object.keys(colors);
-		  var x = context.canvas.width - 15 - (155 * levels.length);                      
+		  var x = context.canvas.width - 15 - (180 * levels.length);                      
 		  var patternImg = document.getElementById('patternImg');
 		  var pattern = context.createPattern(patternImg,'repeat');
 		  for(var i = 0; i < levels.length; i++) {
 		  context.beginPath();
-		  context.arc(x + (155 * i), 17, 8, 0, 2 * Math.PI, false);
+		  context.arc(x + (180 * i), 16,10, 0, 2 * Math.PI, false);
 		  if (colors[levels[i]] != 'pattern') {
 		  context.fillStyle = colors[levels[i]];
 		  }
@@ -1066,7 +1066,7 @@
 		  context.stroke();
 		  
 		  context.fillStyle = '#000000';
-		  context.fillText(levels[i], x + 15 + (i * 155), 22);
+		  context.fillText(levels[i], x + 17 + (i * 180), 22);
 		  }
 		  },
 		  setupCanvas: function(width, height, username){
@@ -1087,7 +1087,7 @@
 		  context.fillStyle = '#FFFFFF';
 		  context.fillRect(0, 0, canvas.width, canvas.height);
 		  
-		  context.font = "bold 24px Arial";
+		  context.font = "bold 28px Arial";
 		  context.fillStyle = '#000000';
 		  context.fillText('Kinklist ' + username, 5, 25);
 		  
@@ -1097,25 +1097,25 @@
 		  drawCallHandlers: {
 		  simpleTitle: function(context, drawCall){
 		  context.fillStyle = '#000000';
-		  context.font = "bold 18px Arial";
-		  context.fillText(drawCall.data, drawCall.x, drawCall.y + 5);
+		  context.font = "bold 21px Arial";
+		  context.fillText(drawCall.data, drawCall.x, drawCall.y + 8);
 		  },
 		  titleSubtitle: function(context, drawCall){
 		  context.fillStyle = '#000000';
-		  context.font = "bold 18px Arial";
-		  context.fillText(drawCall.data.category, drawCall.x, drawCall.y + 5);
+		  context.font = "bold 21px Arial";
+		  context.fillText(drawCall.data.category, drawCall.x, drawCall.y + 6);
 		  
-		  var fieldsStr = drawCall.data.fields.join(', ');
-		  context.font = "italic 12px Arial";
-		  context.fillText(fieldsStr, drawCall.x, drawCall.y + 20);
+		  var fieldsStr = drawCall.data.fields.join(', ');0
+		  context.font = "italic 16px Arial";
+		  context.fillText(fieldsStr, drawCall.x, drawCall.y + 25);
 		  },
 		  kinkRow: function(context, drawCall){
 		  context.fillStyle = '#000000';
-		  context.font = "12px Arial";
+		  context.font = "16px Arial";
 		  
-		  var x = drawCall.x + 5 + (drawCall.data.choices.length * 20);
+		  var x = drawCall.x + 5 + (drawCall.data.choices.length * 24);
 		  var y = drawCall.y - 6;
-		  context.fillText(drawCall.data.text, x, y);
+		  context.fillText(drawCall.data.text, x, y + 3);
 		  var patternImg = document.getElementById('patternImg');
 		  var pattern = context.createPattern(patternImg,'repeat');
 		  // Circles
@@ -1123,11 +1123,11 @@
 		  var choice = drawCall.data.choices[i];
 		  var color = colors[choice];
 		  
-		  var x = 10 + drawCall.x + (i * 20);
+		  var x = 10 + drawCall.x + (i * 26);
 		  var y = drawCall.y - 10;
 		  
 		  context.beginPath();
-		  context.arc(x, y, 8, 0, 2 * Math.PI, false);
+		  context.arc(x, y, 10, 0, 2 * Math.PI, false);
 		  if (color != 'pattern') {
 		  context.fillStyle = color;
 		  }
@@ -1152,10 +1152,10 @@
 		  
 		  // Constants
 		  var numCols = 6;
-		  var columnWidth = 250;
-		  var simpleTitleHeight = 35;
-		  var titleSubtitleHeight = 50;
-		  var rowHeight = 25;
+		  var columnWidth = 300;
+		  var simpleTitleHeight = 42;
+		  var titleSubtitleHeight = 60;
+		  var rowHeight = 30;
 		  var offsets = {
 		  left: 10,
 		  right: 10,
@@ -1267,7 +1267,7 @@
 		  }
 		  }
 		  
-		  // return $(canvas).insertBefore($('#InputList'));
+		// return $(canvas).insertBefore($('#InputList')); // Uncomment this for debugging.
 		  
 		  // Send canvas to imgur
 		  $.ajax({
